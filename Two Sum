@@ -1,0 +1,24 @@
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+            var table = new Hashtable();
+            table[nums[0]] =  0;
+        
+            for (var i = 1; i < nums.Length; i++)
+            {
+                var diff = target - nums[i];
+                var td = target - diff;
+                
+                if (table.Contains(diff))
+                {
+                    return new int[2]{(int) table[diff],i};
+                }
+
+                if (!table.Contains(td))
+                {
+                    table[td] =  i;
+                }
+            }
+
+            return null;
+    }
+}
